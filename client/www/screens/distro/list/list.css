@@ -21,6 +21,19 @@
 	background-color: #F3FFE2;
 }
 
+.studentName {
+	font-family: $BOLD;
+	font-size: 64px;
+	color: white;
+	margin: 0px;
+}
+
+.stats {
+	margin: 0px;
+	font-size: 34px;
+	color: white;
+}
+
 .studentList .students li {
 	padding: 16px;
 	border-bottom: solid 2px #225378;
@@ -39,6 +52,8 @@
 	right: 0px;
 	top: 116px;
 	bottom: 64px;
+	
+	padding: 20px;
 	
 	border-left: solid 10px #225378;
 	
