@@ -4,7 +4,6 @@ var PLATFORM_PC = 0;
 
 // bootstrap the app
 $(document).ready(function() {
-	console.log("Bootstrapping...");
 	start();
 });
 
