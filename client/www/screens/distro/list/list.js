@@ -28,6 +28,7 @@ gui.screens["distro/list"].data = {
 		ul.children().click(function() {
 			ul.children().removeClass("selected");
 			$(this).addClass("selected");
+			$(".noneSelected").hide();
 		})
 		
 		registerScrollContainers(ul.parent());
