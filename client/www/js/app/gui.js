@@ -589,7 +589,7 @@ function registerScrollContainers(containers) {
 		var scroll = new iScroll(j, {
 			bounce: false,
 			hScrollbar: false,
-			vScrollbar: false
+			vScrollbar: true
 		});
 		$(this).data("scroll", scroll);
 
