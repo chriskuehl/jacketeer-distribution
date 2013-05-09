@@ -26,7 +26,8 @@ gui.screens["distro/start"].data = {
 				return dialog("Full Name Required", "Please use your full name.", ["Sorry!"]);
             }
             
-            return alert("ok");
+            currentStudent = name;
+            setScreen("distro/list");
 		});
 	}
 };
