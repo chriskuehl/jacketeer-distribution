@@ -21,6 +21,13 @@
 	background-color: #F3FFE2;
 }
 
+.studentList .students li {
+	padding: 16px;
+	border-bottom: solid 2px #225378;
+	font-family: $NORMAL;
+	font-size: 44px;
+}
+
 .studentInfoPanel {
 	position: absolute;
 	left: 1250px;
