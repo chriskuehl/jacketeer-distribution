@@ -28,6 +28,17 @@
 	margin: 0px;
 }
 
+.sigPreview {
+	width: 738px;
+	height: 460px;
+	background-image: url("$ASSETS/test-sig.png");
+	
+	margin-left: auto;
+	margin-right: auto;
+	
+	margin-top: 20px;
+}
+
 .stats {
 	margin: 0px;
 	font-size: 34px;
