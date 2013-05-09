@@ -5,6 +5,16 @@ gui.screens["distro/start"].data = {
 	}],
 
 	setup: function(contentManager) {
+		$(".fullName").keypress(function(e) {
+			if (e.which == 13) {
+				$(".continue").click();
+				$(this).blur(); // hide the iPad keyboard
+
+				e.preventDefault();
+				return false;
+			}
+		});
+		
 		$(".continue").click(function() {
 			var name = $(".fullName").val().trim();
 			
