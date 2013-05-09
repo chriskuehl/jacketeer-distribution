@@ -14,11 +14,23 @@
 .studentList {
 	position: absolute;
 	left: 0px;
-	right: 0px;
+	width: 1250px;
 	top: 118px;
 	bottom: 64px;
 	
 	background-color: #F3FFE2;
+}
+
+.studentInfoPanel {
+	position: absolute;
+	left: 1250px;
+	right: 0px;
+	top: 118px;
+	bottom: 64px;
+	
+	border-left: solid 10px #225378;
+	
+	background-color: #1695A3;
 }
 
 .statusBar {
@@ -40,7 +52,7 @@
 .statusBar .logout {
 	position: absolute;
 	bottom: 0px;
-	right: 0px;
+	left: 0px;
 	width: 250px;
 	height: 32px;
 	padding: 16px;
