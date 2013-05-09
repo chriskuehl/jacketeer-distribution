@@ -24,5 +24,7 @@ gui.screens["distro/list"].data = {
 			
 			li.appendTo(ul);
 		}
+		
+		registerScrollContainers(ul.parent());
 	}
 };
