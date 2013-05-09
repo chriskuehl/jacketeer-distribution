@@ -28,6 +28,11 @@
 	font-size: 44px;
 }
 
+.studentList .students li.selected {
+	color: white;
+	background-color: #1695A3;
+}
+
 .studentInfoPanel {
 	position: absolute;
 	left: 1250px;

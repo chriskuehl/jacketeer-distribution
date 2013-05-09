@@ -25,6 +25,11 @@ gui.screens["distro/list"].data = {
 			li.appendTo(ul);
 		}
 		
+		ul.children().click(function() {
+			ul.children().removeClass("selected");
+			$(this).addClass("selected");
+		})
+		
 		registerScrollContainers(ul.parent());
 	}
 };
