@@ -1,1 +1,55 @@
-/* */
+$SCREEN {
+	background-color: #225378;
+	padding: 20px;
+}
+
+$SCREEN p {
+	font-size: 34px;
+	text-align: center;
+}
+
+$SCREEN .floater {
+	
+	width: 1000px;
+	height: 300px;
+	
+	margin-left: -540px;
+	
+	position: absolute;
+	top: 300px;
+	left: 50%;
+	
+	padding: 40px;
+	/*border-radius: 4px;
+	
+	box-shadow: 0px 4px 8px 4px rgba(0, 0, 0, 0.2); */
+	
+	/* border: solid 14px rgb(33, 133, 197); */
+	background-color: #F3FFE2;	
+	z-index: 10;
+}
+
+$SCREEN .bottomBar {
+	position: absolute;
+	left: 0px;
+	right: 0px;
+	top: 260px;
+	
+	z-index: 0;
+	
+	height: 460px;
+	background-color: #1695A3;
+}
+
+$SCREEN .continue {
+	width: 200px;
+	padding: 35px;
+	margin-left: auto;
+	color: white !important;
+	margin-right: auto;
+	margin-top: 16px;
+	background-color: #1695A3;
+	font-family: $BOLD;
+	font-size: 34px;
+	text-align: center;
+}
