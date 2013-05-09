@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+		<!-- prevent things that look like phone numbers from becoming links -->
+		<meta name="format-detection" content="telephone=no" />
+
+		<!-- set a reasonable viewport -->
+		<meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=0.5, minimum-scale=0.5, maximum-scale=0.5" />
+
+		<!-- include stylesheets -->
+		<link rel="stylesheet" href="css/reset.css" />
+		<link rel="stylesheet" href="css/app.css" />
+
+		<!-- page metadata -->
+		<title>Loading...</title>
+	</head>
+	
+	<body>
+		<div id="container">
+			<div id="navBar"></div>
+			<div id="contentHolder"></div>
+			<div id="loading">
+				<div id="loadingWindow">
+					<p  style="margin-top: 80px !important;"><img src="css/assets/loadingBRfixed.gif" /></p>
+					<p id="loadingText"></p>
+				</div>
+			</div>
+		</div>
+		
+		<div id="cssHolder"></div>
+		
+		<!-- error handling -->
+		<script>
+			// http://stackoverflow.com/a/14939891/450164
+			window.onerror = function(message, url, lineNumber) {
+				console.log("!!!! ERROR: " + message + " in " + url + " at line " + lineNumber);
+			};
+		</script>
+		
+		<!-- libraries -->
+		<script src="js/lib/cordova-2.7.0.js"></script>
+		<!-- <script src="js/lib/tabbar-20130122.js"></script> -->
+		<script src="js/lib/loader.js"></script>
+		<script src="js/lib/strings.js"></script>
+		<script src="js/lib/array-remove.js"></script>
+		<script src="js/lib/array-shuffle.js"></script>
+		<script src="js/lib/jquery-1.8.3.min.js"></script>
+		<script src="js/lib/jquery-ui-1.9.0.min.js"></script>
+		<script src="js/lib/jquery-animate-enhanced.min.js"></script>
+		<script src="js/lib/jquery-textmetrics.js"></script>
+		<script src="js/lib/fastclick-20121202.js"></script>
+		<script src="js/lib/base64.js"></script>
+		<script src="js/lib/iscroll.js"></script>
+		<script src="js/lib/validate-email.js"></script>
+		<script src="js/lib/preload.js"></script>
+		<script src="js/lib/Markdown.Converter.js"></script>
+		<script src="js/lib/Markdown.Editor.js"></script>
+		<script src="js/lib/Markdown.Sanitizer.js"></script>
+		<!-- <script src="js/lib/touchscroll.js"></script>
+		<script src="js/lib/css-beziers.js"></script> -->
+		
+		<!-- app help -->
+		<script src="js/stage/fastclick.js"></script>
+		
+		<!-- app resources -->
+		<script src="js/app/gui.js"></script>
+		<script src="js/app/network.js"></script>
+		<script src="js/app/lang.js"></script>
+		<script src="js/app/markdown.js"></script>
+		<script src="js/app/user.js"></script>
+		
+		<!-- core and bootstrapping -->
+		<script src="js/app/core.js"></script>
+		<script src="js/app/bootstrap.js"></script>
+	</body>
+</html>
