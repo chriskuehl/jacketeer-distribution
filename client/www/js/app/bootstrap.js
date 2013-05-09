@@ -1,5 +1,6 @@
 var APP_VERSION = "1.0";
-var PLATFORM = PLATFORM_IOS = 0; // helps maintain compatibility with BrowseRight, even though this app doesn't detect platform
+var PLATFORM = PLATFORM_IOS = 1; // helps maintain compatibility with BrowseRight, even though this app doesn't detect platform
+var PLATFORM_PC = 0;
 
 // bootstrap the app
 $(document).ready(function() {
