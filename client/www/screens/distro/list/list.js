@@ -14,5 +14,15 @@ gui.screens["distro/list"].data = {
 				}
 			});
 		})
+		
+		// add some test data
+		var ul = $(".students");
+		
+		for (var i = 1; i <= 250; i ++) {
+			var li = $("<li />");
+			li.text((i * Math.random() * 100000000000000).toString(16));
+			
+			li.appendTo(ul);
+		}
 	}
 };
