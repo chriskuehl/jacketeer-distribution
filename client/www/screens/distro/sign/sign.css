@@ -1,3 +1,56 @@
 $SCREEN {
-	background-color: #225378;
+	background-color: #F3FFE2;
+	padding-top: 20px;
+}
+
+$SCREEN h1 {
+	font-family: $BOLD;
+	text-align: center;
+	font-size: 100px;
+	margin: 30px 100px;
+}
+
+$SCREEN p {
+	color: black;
+	text-align: center;
+	margin: 50px 100px;
+	font-size: 40px;
+}
+
+$SCREEN .signContainer {
+	margin-left: auto;
+	margin-right: auto;
+	
+	width: 1600px;
+}
+
+$SCREEN .signArea {
+	width: 1600px;
+	height: 800px;
+	
+	margin-bottom: 20px;
+	
+	background-color: white;
+}
+
+$SCREEN .signOK, $SCREEN .signClear {
+	float: left;
+	padding: 20px;
+	text-align: center;
+	font-family: $BOLD;
+	font-size: 48px;
+}
+
+$SCREEN .signOK {
+	background-color: red;
+	margin-right: 20px;
+	color: white;
+	
+	width: 960px;
+}
+
+$SCREEN .signClear {
+	background-color: green;
+	color: white;
+	width: 540px;
 }
