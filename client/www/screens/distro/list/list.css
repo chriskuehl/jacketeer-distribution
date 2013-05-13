@@ -4,11 +4,11 @@ $SCREEN .searchBar {
 	right: 0px;
 	top: 0px;
 	
-	height: 84px;
+	height: 92px;
 	
 	padding: 16px;
 	
-	background-color: #225378;
+	background-color: #333333;
 }
 
 $SCREEN .studentList {
@@ -18,7 +18,7 @@ $SCREEN .studentList {
 	top: 116px;
 	bottom: 64px;
 	
-	background-color: #F3FFE2;
+	/*background-color: #F3FFE2;*/
 }
 
 $SCREEN .studentName {
@@ -58,7 +58,7 @@ $SCREEN .studentList .students li {
 
 $SCREEN .studentList .students li.selected {
 	color: white;
-	background-color: #1695A3;
+	background-color: #00BFF3;
 }
 
 $SCREEN .studentInfoPanel {
@@ -72,7 +72,7 @@ $SCREEN .studentInfoPanel {
 	
 	border-left: solid 10px #225378;
 	
-	background-color: #1695A3;
+	background-color: #505151;
 }
 
 $SCREEN .studentInfoPanel .noneSelected {
@@ -123,10 +123,12 @@ $SCREEN .notSigned .voidPickup {
 $SCREEN .voidPickup {
 	padding-top: 40px;
 	padding-bottom: 40px;
-	background-color: #225378;
+	background-color: #D95B1F;
 	text-align: center;
+	border: 4px solid #F1793F;
+	border-radius: 4px;
 	
-	width: 738px;
+	width: 730px;
 	
 	margin-left: auto;
 	margin-right: auto;
@@ -145,10 +147,12 @@ $SCREEN .pickup {
 	display: none;
 	padding-top: 40px;
 	padding-bottom: 40px;
-	background-color: lime;
+	background-color: #74C93E;
 	text-align: center;
+	border: 4px solid #90DE68;
+	border-radius: 4px;
 	
-	width: 738px;
+	width: 730px;
 	
 	margin-left: auto;
 	margin-right: auto;

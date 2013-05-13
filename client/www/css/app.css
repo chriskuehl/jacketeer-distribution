@@ -205,24 +205,34 @@ h1, h2, h3, h4, h5, h6 {
 	/* border: solid 1px #797C76;
 	border-radius: 10px; */
 	
-	padding: 25px;
+	padding: 26px;
 	height: 32px;
 	
 	margin-bottom: 30px;
 	
 	position: relative;
+	border: solid 4px black;
+	border-radius: 4px;
 }
 
 .textBox label {
 	font-family: "HelveticaNeue-Bold";
+	text-transform: capitalize;
+	font-style: italic;
 	font-size: 36px;
 	
-	color: #2B2728;
+	color: #9E9E9E;
 	
 	display: block;
 	position: absolute;
-	top: 24px;
-	left: 25px;
+	top: 0px;
+	bottom: 0px;
+	left: 0px;
+	
+	padding-top: 24px;
+	padding-left: 25px;
+	
+	border-left: solid 34px #9E9E9E;
 }
 
 .textBox input {
