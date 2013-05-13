@@ -15,7 +15,7 @@ $SCREEN .studentList {
 	position: absolute;
 	left: 0px;
 	width: 1250px;
-	top: 116px;
+	top: 124px;
 	bottom: 64px;
 	
 	/*background-color: #F3FFE2;*/
@@ -65,7 +65,7 @@ $SCREEN .studentInfoPanel {
 	position: absolute;
 	left: 1250px;
 	right: 0px;
-	top: 116px;
+	top: 124px;
 	bottom: 64px;
 	
 	padding: 20px;
