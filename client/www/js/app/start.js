@@ -2,5 +2,5 @@
 var currentStudent = "John Doe";
 
 function startApp() {
-	setScreen("distro/sign");
+	setScreen("distro/start");
 }
