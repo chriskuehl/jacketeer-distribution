@@ -29,8 +29,27 @@ gui.screens["distro/list"].data = {
 			ul.children().removeClass("selected");
 			$(this).addClass("selected");
 			$(".noneSelected").hide();
+			
+			if (Math.random() < 0.5) {
+				// user has signed
+				$(".whenSelected").removeClass("notSigned");
+				$(".datePickedUp").text("Tue May 22 @ 5:32 PM EST");
+			} else {
+				// user has not signed
+				$(".whenSelected").addClass("notSigned");
+				$(".datePickedUp").text("N/A");
+			}
 		})
 		
 		registerScrollContainers(ul.parent());
+		
+		// handle voiding
+		$(".voidPickup").click(function() {
+			dialog("Void Pickup", "Are you absolutely sure that you want to void this pickup?\nTHIS CANNOT BE UNDONE.", ["Cancel", "Void Pickup"], function(change) {
+				if (change) {
+					alert("ok voided");
+				}
+			});
+		});
 	}
 };
