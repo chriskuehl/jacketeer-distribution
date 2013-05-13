@@ -13,7 +13,7 @@ gui.screens["distro/list"].data = {
 					setScreen("distro/start");
 				}
 			});
-		})
+		});
 		
 		// add some test data
 		var ul = $(".students");
@@ -50,6 +50,10 @@ gui.screens["distro/list"].data = {
 					alert("ok voided");
 				}
 			});
+		});
+		
+		$(".pickup").click(function() {
+			setScreen("distro/sign");
 		});
 	}
 };
