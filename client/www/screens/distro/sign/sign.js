@@ -26,7 +26,6 @@ gui.screens["distro/sign"].data = {
 
 	setup: function(contentManager) {
 		var canvas = $("#signCanvas");
-		canvas.css("backgroundColor", "yellow");
 		canvas.data("paths", []);
 
 		var ctx = canvas[0].getContext("2d");
