@@ -16,12 +16,13 @@ gui.screens["distro/list"].data = {
 		});
 		
 		// load order list
-		apiWithLoading("Loading orders...", "get-orders.php", [], function(orders) {
+		apiWithLoading("Loading orders...", "get-orders.php", {}, function(orders) {
 			var ul = $(".students");
 			
 			for (var i = 0; i < orders.length; i ++) {
 				var order = orders[i];
 				var li = $("<li />");
+				li.data("orderID", order.ID);
 				li.text(order.LastName + ", " + order.FirstName);
 				
 				li.appendTo(ul);
@@ -31,17 +32,25 @@ gui.screens["distro/list"].data = {
 			ul.children().click(function() {
 				ul.children().removeClass("selected");
 				$(this).addClass("selected");
-				$(".noneSelected").hide();
 				
-				if (Math.random() < 0.5) {
-					// user has signed
-					$(".whenSelected").removeClass("notSigned");
-					$(".datePickedUp").text("Tue May 22 @ 5:32 PM EST");
-				} else {
-					// user has not signed
-					$(".whenSelected").addClass("notSigned");
-					$(".datePickedUp").text("N/A");
-				}
+				apiWithLoading("Loading order...", "order.php", {order: $(this).data("orderID")}, function(data) {
+					$(".studentName").text(data.FirstName + " " + data.LastName);
+					
+					$(".noneSelected").hide();
+					$(".whenSelected").show();
+					
+					if (data.PickedUp) {
+						// user has signed
+						$(".whenSelected").removeClass("notSigned");
+						$(".datePickedUp").text("Tue May 22 @ 5:32 PM EST");
+					} else {
+						// user has not signed
+						$(".pickup").data("orderID", data.ID);
+						
+						$(".whenSelected").addClass("notSigned");
+						$(".datePickedUp").text("N/A");
+					}
+				});
 			})
 			
 			registerScrollContainers(ul.parent());

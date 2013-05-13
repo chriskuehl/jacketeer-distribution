@@ -21,6 +21,10 @@ $SCREEN .studentList {
 	background-color: white;
 }
 
+$SCREEN .whenSelected {
+	display: none;
+}
+
 $SCREEN .studentName {
 	font-family: $BOLD;
 	font-size: 64px;
