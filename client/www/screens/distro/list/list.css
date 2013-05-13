@@ -18,7 +18,7 @@ $SCREEN .studentList {
 	top: 124px;
 	bottom: 64px;
 	
-	/*background-color: #F3FFE2;*/
+	background-color: white;
 }
 
 $SCREEN .studentName {
@@ -51,7 +51,7 @@ $SCREEN .stats {
 
 $SCREEN .studentList .students li {
 	padding: 16px;
-	border-bottom: solid 2px #225378;
+	border-bottom: solid 2px #929292;
 	font-family: $NORMAL;
 	font-size: 44px;
 }
@@ -70,7 +70,7 @@ $SCREEN .studentInfoPanel {
 	
 	padding: 20px;
 	
-	border-left: solid 10px #225378;
+	border-left: solid 10px white;
 	
 	background-color: #505151;
 }
@@ -91,10 +91,10 @@ $SCREEN .statusBar {
 	left: 0px;
 	right: 0px;
 	bottom: 0px;
-	height: 32px;
+	height: 34px;
 	padding: 16px;
 	
-	background-color: #225378;
+	background-color: #333333;
 	
 	font-family: $BOLD;
 	font-size: 32px;
@@ -105,12 +105,13 @@ $SCREEN .statusBar {
 $SCREEN .statusBar .logout {
 	position: absolute;
 	bottom: 0px;
-	left: 0px;
+	right: 16px;
 	width: 250px;
-	height: 32px;
+	height: 34px;
 	padding: 16px;
-	
-	background-color: #1695A3;
+	border-left: 4px solid #787878;
+	border-right: 4px solid #787878;
+	background-color: #646464;
 	
 	font-family: $BOLD;
 	font-size: 32px;
