@@ -69,6 +69,7 @@ gui.screens["distro/list"].data = {
 		});
 		
 		$(".pickup").click(function() {
+			selectedOrderID = $(this).data("orderID");
 			setScreen("distro/sign");
 		});
 	}
