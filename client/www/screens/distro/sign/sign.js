@@ -2,6 +2,7 @@ var sigPaths = [];
 var penData = null;
 var globalTension = 0.35;
 var globalInterval = 0;
+var num = 0;
 
 gui.screens["distro/sign"].data = {
 	id: "distro/sign",
@@ -28,16 +29,16 @@ gui.screens["distro/sign"].data = {
 		penData = null;
 		sigPaths = [];
 		
+		var canvas = $("#signCanvas");
+		canvas.data("paths", []);
+		var ctx = canvas[0].getContext("2d");
+		
 		// load student data
 		apiWithLoading("Loading order...", "order.php", {order: selectedOrderID}, function(data) {
 			$(".studentName").text(data.FirstName + " " + data.LastName);
-			$(".legalText").text("By signing, you certify: (1) you are either (a) the person whose name appears above or (b) a parent/guardian of that person and (2) you have received your " + data.Num + " yearbook" + (data.Num > 1 ? "s" : "") + ".");
+			num = data.Num;
+			drawAgreement(ctx);
 		});
-		
-		var canvas = $("#signCanvas");
-		canvas.data("paths", []);
-		
-		var ctx = canvas[0].getContext("2d");
 		
 		$(".signOK").click(function() {
 			dialog("Confirm Pickup", "Are you sure?", ["Cancel", "Confirm"], function(change) {
@@ -111,6 +112,19 @@ gui.screens["distro/sign"].data = {
 	}
 };
 
+function drawAgreement(ctx) {
+	// draw agreement text on the canvas
+	ctx.fillStyle = "black";
+	ctx.textAlign = "center";
+	ctx.font = "bold 34px Helvetica";
+	
+	var legalText = ["By signing, you certify: (1) you are either (a) the person whose name appears above or (b) a", "parent/guardian of that person and (2) you have received your " + num + " yearbook" + (num > 1 ? "s" : "") + "."];
+	
+	for (var i = 0; i < legalText.length; i ++) {
+		ctx.fillText(legalText[i], 796, 50 + (i * 50));
+	}
+}
+
 function currentTime() {
 	return (new Date()).getTime();
 }
@@ -161,6 +175,9 @@ function redrawCanvas(canvas, ctx) {
 			drawSpline(ctx, sigPaths[i], globalTension, false);
 		}
 	}
+	
+	// draw the agreement text
+	drawAgreement(ctx);
 }
 
 function getPenPosition(canvas, e) {
