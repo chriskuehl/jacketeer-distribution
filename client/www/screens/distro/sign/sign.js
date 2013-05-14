@@ -25,6 +25,9 @@ gui.screens["distro/sign"].data = {
 	parents: ["distro/start", "distro/list"],
 
 	setup: function(contentManager) {
+		penData = null;
+		sigPaths = [];
+		
 		// load student data
 		apiWithLoading("Loading order...", "order.php", {order: selectedOrderID}, function(data) {
 			$(".studentName").text(data.FirstName + " " + data.LastName);
@@ -33,13 +36,17 @@ gui.screens["distro/sign"].data = {
 		
 		var canvas = $("#signCanvas");
 		canvas.data("paths", []);
-
+		
 		var ctx = canvas[0].getContext("2d");
 		
 		$(".signOK").click(function() {
 			dialog("Confirm Pickup", "Are you sure?", ["Cancel", "Confirm"], function(change) {
 				if (change) {
-					setScreen("distro/list");
+					var img = canvas[0].toDataURL("image/png");
+					
+					apiWithLoading("Saving signature...", "sign.php", {order: selectedOrderID, signature: img, staff: currentStudent}, function(data) {
+						//setScreen("distro/list");
+					})
 				}
 			});
 		});
