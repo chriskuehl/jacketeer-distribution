@@ -25,6 +25,12 @@ gui.screens["distro/sign"].data = {
 	parents: ["distro/start", "distro/list"],
 
 	setup: function(contentManager) {
+		// load student data
+		apiWithLoading("Loading order...", "order.php", {order: selectedOrderID}, function(data) {
+			$(".studentName").text(data.FirstName + " " + data.LastName);
+			$(".legalText").text("By signing, you certify: (1) you are either (a) the person whose name appears above or (b) a parent/guardian of that person and (2) you have received your " + data.Num + " yearbook" + (data.Num > 1 ? "s" : "") + ".");
+		});
+		
 		var canvas = $("#signCanvas");
 		canvas.data("paths", []);
 
