@@ -12,7 +12,7 @@ gui.screens["distro/sign"].data = {
 		buttons: {
 			left: {
 				type: "back",
-				title: "Student List",
+				title: "Order List",
 				action: function() {
 					dialog("Cancel Pickup", "Are you sure you want to cancel collection? The student should not receive a yearbook without signing.", ["Stay Here", "Go Back"], function(change) {
 						if (change) {
