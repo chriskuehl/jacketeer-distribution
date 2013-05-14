@@ -1,5 +1,5 @@
 // first action after loading
-var currentStudent = "John Doe";
+var currentStudent = null;
 var selectedOrderID = (- 1);
 
 function startApp() {
