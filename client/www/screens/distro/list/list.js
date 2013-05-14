@@ -45,12 +45,19 @@ gui.screens["distro/list"].data = {
 							// user has signed
 							$(".whenSelected").removeClass("notSigned");
 							$(".datePickedUp").text(data.PickupTime);
+							$(".sigPreview").css({
+								backgroundImage: "url(\"http://jacketeer.org/" + data.PickupSignature + "\")",
+								backgroundColor: "white",
+								backgroundRepeat: "no-repeat",
+								backgroundSize: "100% auto"
+							});
 						} else {
 							// user has not signed
 							$(".pickup").data("orderID", data.ID);
 							
 							$(".whenSelected").addClass("notSigned");
 							$(".datePickedUp").text("N/A");
+							$(".sigPreview").removeAttr("css");
 						}
 					});
 				}
