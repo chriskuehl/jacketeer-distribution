@@ -92,4 +92,6 @@ function filterStudentList() {
 		var visible = term.length <= 0 || ee.text().toLowerCase().contains(term);
 		ee.css("display", visible ? "block" : "none");
 	});
+	
+	updateScrollContainers($(".students").parent());
 }
