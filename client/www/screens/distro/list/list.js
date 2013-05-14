@@ -66,6 +66,8 @@ gui.screens["distro/list"].data = {
 			registerScrollContainers(ul.parent());
 		});
 		
+		$(".searchName").bind("keydown keyup", filterStudentList);
+		
 		// handle voiding
 		$(".voidPickup").click(function() {
 			dialog("Void Pickup", "Are you absolutely sure that you want to void this pickup?\nTHIS CANNOT BE UNDONE.", ["Cancel", "Void Pickup"], function(change) {
@@ -81,3 +83,13 @@ gui.screens["distro/list"].data = {
 		});
 	}
 };
+
+function filterStudentList() {
+	var term = $(".searchName").val().trim();
+	
+	$(".students li").each(function(i, e) {
+		var ee = $(e);
+		var visible = term.length <= 0 || ee.text().contains(term);
+		ee.css("display", visible ? "block" : "none");
+	});
+}
