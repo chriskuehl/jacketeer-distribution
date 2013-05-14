@@ -34,32 +34,7 @@ gui.screens["distro/list"].data = {
 					ul.children().removeClass("selected");
 					$(this).addClass("selected");
 					
-					apiWithLoading("Loading order...", "order.php", {order: $(this).data("orderID")}, function(data) {
-						$(".studentName").text(data.FirstName + " " + data.LastName);
-						$(".numberPurchased").text(data.Num);
-						
-						$(".noneSelected").hide();
-						$(".whenSelected").show();
-						
-						if (data.PickedUp) {
-							// user has signed
-							$(".whenSelected").removeClass("notSigned");
-							$(".datePickedUp").text(data.PickupTime);
-							$(".sigPreview").css({
-								backgroundImage: "url(\"http://jacketeer.org/" + data.PickupSignature + "\")",
-								backgroundColor: "white",
-								backgroundRepeat: "no-repeat",
-								backgroundSize: "100% auto"
-							});
-						} else {
-							// user has not signed
-							$(".pickup").data("orderID", data.ID);
-							
-							$(".whenSelected").addClass("notSigned");
-							$(".datePickedUp").text("N/A");
-							$(".sigPreview").removeAttr("css");
-						}
-					});
+					loadOrder($(this).data("orderID"));
 				}
 			})
 			
@@ -70,9 +45,11 @@ gui.screens["distro/list"].data = {
 		
 		// handle voiding
 		$(".voidPickup").click(function() {
-			dialog("Void Pickup", "Are you absolutely sure that you want to void this pickup?\nTHIS CANNOT BE UNDONE.", ["Cancel", "Void Pickup"], function(change) {
+			dialog("Invalidate Pickup", "Are you absolutely sure that you want to invalidate this pickup?\nTHIS CANNOT BE UNDONE.", ["Cancel", "Invalidate"], function(change) {
 				if (change) {
-					alert("ok voided");
+					apiWithLoading("Invalidating signature...", "invalidate.php", {order: $(".pickup").data("orderID"), staff: currentStudent}, function(data) {
+						loadOrder($(".pickup").data("orderID"));
+					});
 				}
 			});
 		});
@@ -83,6 +60,35 @@ gui.screens["distro/list"].data = {
 		});
 	}
 };
+
+function loadOrder(orderID) {
+	apiWithLoading("Loading order...", "order.php", {order: orderID}, function(data) {
+		$(".studentName").text(data.FirstName + " " + data.LastName);
+		$(".numberPurchased").text(data.Num);
+		
+		$(".noneSelected").hide();
+		$(".whenSelected").show();
+		
+		$(".pickup").data("orderID", data.ID);
+		
+		if (data.PickedUp) {
+			// user has signed
+			$(".whenSelected").removeClass("notSigned");
+			$(".datePickedUp").text(data.PickupTime);
+			$(".sigPreview").css({
+				backgroundImage: "url(\"http://jacketeer.org/" + data.PickupSignature + "\")",
+				backgroundColor: "white",
+				backgroundRepeat: "no-repeat",
+				backgroundSize: "100% auto"
+			});
+		} else {
+			// user has not signed
+			$(".whenSelected").addClass("notSigned");
+			$(".datePickedUp").text("N/A");
+			$(".sigPreview").removeAttr("css");
+		}
+	});
+}
 
 function filterStudentList() {
 	var term = $(".searchName").val().trim().toLowerCase();
