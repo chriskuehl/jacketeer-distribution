@@ -85,11 +85,11 @@ gui.screens["distro/list"].data = {
 };
 
 function filterStudentList() {
-	var term = $(".searchName").val().trim();
+	var term = $(".searchName").val().trim().toLowerCase();
 	
 	$(".students li").each(function(i, e) {
 		var ee = $(e);
-		var visible = term.length <= 0 || ee.text().contains(term);
+		var visible = term.length <= 0 || ee.text().toLowerCase().contains(term);
 		ee.css("display", visible ? "block" : "none");
 	});
 }
