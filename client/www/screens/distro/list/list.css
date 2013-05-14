@@ -45,7 +45,8 @@ $SCREEN .sigPreview {
 }
 
 $SCREEN .notSigned .sigPreview {
-	background-image: url("$ASSETS/not-collected.png") !important;
+	/* background-image: url("$ASSETS/not-collected.png") !important; */
+	display: none;
 }
 
 $SCREEN .stats {
