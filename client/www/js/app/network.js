@@ -20,6 +20,8 @@ function api(command, params, callback) {
 	
 	params.temp = Math.floor(Math.random() * 10000000);
 	params.appVersion = APP_VERSION;
+	
+	console.log("sending params: " + JSON.stringify(params));
 
 	$.ajax({
 		url: "http://jacketeer.org/" + command,
