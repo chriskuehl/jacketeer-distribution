@@ -46,7 +46,7 @@ gui.screens["distro/sign"].data = {
 					var img = canvas[0].toDataURL("image/png");
 					
 					apiWithLoading("Saving signature...", "sign.php", {order: selectedOrderID, signature: img, staff: currentStudent}, function(data) {
-						//setScreen("distro/list");
+						setScreen("distro/list");
 					})
 				}
 			});
