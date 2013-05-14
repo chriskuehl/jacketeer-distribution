@@ -75,6 +75,7 @@ $SCREEN .studentInfoPanel {
 	bottom: 64px;
 	
 	padding: 20px;
+	padding-top: 6px;
 	
 	border-left: solid 10px white;
 	
