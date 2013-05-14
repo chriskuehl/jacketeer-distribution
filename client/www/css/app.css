@@ -294,8 +294,9 @@ h1, h2, h3, h4, h5, h6 {
 	left: 50%;
 	
 	padding: 40px;
-	background-image: url("assets/loadingImage.gif");
+	background-color: white;
 	background-repeat: no-repeat;
+	border-radius: 16px;
 	
 	width: 400px;
 	height: 468px;
