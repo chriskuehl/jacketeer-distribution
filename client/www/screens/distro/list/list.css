@@ -34,7 +34,7 @@ $SCREEN .studentName {
 
 $SCREEN .sigPreview {
 	width: 738px;
-	height: 367px;
+	height: 437px;
 	background-image: url("$ASSETS/test-sig.png");
 	background-position: 50% 50%;
 	
