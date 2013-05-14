@@ -30,27 +30,30 @@ gui.screens["distro/list"].data = {
 			}
 			
 			ul.children().click(function() {
-				ul.children().removeClass("selected");
-				$(this).addClass("selected");
-				
-				apiWithLoading("Loading order...", "order.php", {order: $(this).data("orderID")}, function(data) {
-					$(".studentName").text(data.FirstName + " " + data.LastName);
+				if ($(this).data("orderID") > 0) {
+					ul.children().removeClass("selected");
+					$(this).addClass("selected");
 					
-					$(".noneSelected").hide();
-					$(".whenSelected").show();
-					
-					if (data.PickedUp) {
-						// user has signed
-						$(".whenSelected").removeClass("notSigned");
-						$(".datePickedUp").text("Tue May 22 @ 5:32 PM EST");
-					} else {
-						// user has not signed
-						$(".pickup").data("orderID", data.ID);
+					apiWithLoading("Loading order...", "order.php", {order: $(this).data("orderID")}, function(data) {
+						$(".studentName").text(data.FirstName + " " + data.LastName);
+						$(".numberPurchased").text(data.Num);
 						
-						$(".whenSelected").addClass("notSigned");
-						$(".datePickedUp").text("N/A");
-					}
-				});
+						$(".noneSelected").hide();
+						$(".whenSelected").show();
+						
+						if (data.PickedUp) {
+							// user has signed
+							$(".whenSelected").removeClass("notSigned");
+							$(".datePickedUp").text(data.PickupTime);
+						} else {
+							// user has not signed
+							$(".pickup").data("orderID", data.ID);
+							
+							$(".whenSelected").addClass("notSigned");
+							$(".datePickedUp").text("N/A");
+						}
+					});
+				}
 			})
 			
 			registerScrollContainers(ul.parent());
