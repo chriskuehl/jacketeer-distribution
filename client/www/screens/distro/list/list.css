@@ -67,8 +67,7 @@ $SCREEN .studentList .students li {
 	background-repeat: no-repeat;
 }
 
-$SCREEN .studentList .students li .checked {
-	padding-left: 68px;
+$SCREEN .studentList .students .checked {
 	background-image: url("$ASSETS/check.png");
 }
 

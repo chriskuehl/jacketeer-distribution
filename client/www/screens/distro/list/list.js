@@ -25,6 +25,10 @@ gui.screens["distro/list"].data = {
 				li.data("orderID", order.ID);
 				li.text(order.LastName + ", " + order.FirstName);
 				
+				if (order.PickedUp) {
+					li.addClass("checked");
+				}
+				
 				li.appendTo(ul);
 				
 			}
