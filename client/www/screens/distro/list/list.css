@@ -60,6 +60,10 @@ $SCREEN .studentList .students li {
 	border-bottom: solid 2px #929292;
 	font-family: $NORMAL;
 	font-size: 44px;
+	padding-left: 84px;
+	background-image: url("$ASSETS/notPicked.png");
+	background-position: 16px 50%;
+	background-repeat: no-repeat;
 }
 
 $SCREEN .studentList .students li.selected {
@@ -169,4 +173,8 @@ $SCREEN .pickup {
 	color: white;
 	font-size: 80px;
 	font-family: $BOLD;
+}
+
+#boxUncheck, #boxCheck {
+	
 }
