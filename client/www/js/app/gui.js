@@ -339,8 +339,8 @@ function populateNavBar(navBarContainer, startX, width, navBarData) {
 	vNumber.css({
 		position: "absolute",
 
-		left: startX + "px",
-		width: (width - 30) + "px",
+		left: (startX + 400) + "px",
+		width: (width - 400 - 30) + "px",
 		textAlign: "right"
 	});
 	
