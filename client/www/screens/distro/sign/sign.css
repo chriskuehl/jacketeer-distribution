@@ -71,6 +71,6 @@ $SCREEN .cameraWarning {
 	color: white;
 	opacity: 0.8;
 	font-size: 36px;
-	padding-top: 30px !important;
+	margin-top: 44px !important;
 	text-align: center;
 }
