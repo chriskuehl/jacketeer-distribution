@@ -3,6 +3,7 @@ var penData = null;
 var globalTension = 0.35;
 var globalInterval = 0;
 var num = 0;
+var ctx = null;
 
 gui.screens["distro/sign"].data = {
 	id: "distro/sign",
@@ -31,7 +32,7 @@ gui.screens["distro/sign"].data = {
 		
 		var canvas = $("#signCanvas");
 		canvas.data("paths", []);
-		var ctx = canvas[0].getContext("2d");
+		ctx = canvas[0].getContext("2d");
 		
 		// load student data
 		apiWithLoading("Loading order...", "order.php", {order: selectedOrderID}, function(data) {
@@ -41,15 +42,25 @@ gui.screens["distro/sign"].data = {
 		});
 		
 		$(".signOK").click(function() {
-			dialog("Confirm Pickup", "Are you sure?", ["Cancel", "Confirm"], function(change) {
+			savePicture();
+			
+			//dialog("Confirm Pickup", "Are you sure?", ["Cancel", "Confirm"], function(change) {
+			//	bgSnapPicture(function(b64) {
+				    //var image = document.getElementById('myImage');
+				    //image.src = "data:image/jpeg;base64," + b64;
+				    
+			//	    ctx.drawImage("data:image/jpeg;base64," + b64, 0, 0);
+			//	});
+				
+				/*
 				if (change) {
 					var img = canvas[0].toDataURL("image/png");
 					
 					apiWithLoading("Saving signature...", "sign.php", {order: selectedOrderID, signature: img, staff: currentStudent}, function(data) {
 						setScreen("distro/list");
 					})
-				}
-			});
+				}*/
+			//});
 		});
 		
 		$(".signClear").click(function() {
@@ -183,4 +194,19 @@ function redrawCanvas(canvas, ctx) {
 function getPenPosition(canvas, e) {
 	var ep = canvas.offset();
 	return [e.targetTouches[0].pageX - ep.left, e.targetTouches[0].pageY - ep.top];
+}
+
+function savePicture() {
+	bgSnapPicture(function(b64) {
+	    //var image = document.getElementById('myImage');
+	    //image.src = "data:image/jpeg;base64," + b64;
+	    
+	    if (b64 != null) {
+	    	api("save-image.php", {image: b64, order: selectedOrderID, name: selectedOrderName}, function() {
+		    	log("Image saved.");
+	    	});
+	    } else {
+	    	console.log("error");
+	    }
+	});
 }
