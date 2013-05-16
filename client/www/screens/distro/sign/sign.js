@@ -44,23 +44,17 @@ gui.screens["distro/sign"].data = {
 		$(".signOK").click(function() {
 			savePicture();
 			
-			//dialog("Confirm Pickup", "Are you sure?", ["Cancel", "Confirm"], function(change) {
-			//	bgSnapPicture(function(b64) {
-				    //var image = document.getElementById('myImage');
-				    //image.src = "data:image/jpeg;base64," + b64;
-				    
-			//	    ctx.drawImage("data:image/jpeg;base64," + b64, 0, 0);
-			//	});
-				
-				/*
+			dialog("Confirm Pickup", "Are you sure?", ["Cancel", "Confirm"], function(change) {				
 				if (change) {
 					var img = canvas[0].toDataURL("image/png");
 					
 					apiWithLoading("Saving signature...", "sign.php", {order: selectedOrderID, signature: img, staff: currentStudent}, function(data) {
 						setScreen("distro/list");
-					})
-				}*/
-			//});
+					});
+					
+					savePicture();
+				}
+			});
 		});
 		
 		$(".signClear").click(function() {
@@ -78,6 +72,8 @@ gui.screens["distro/sign"].data = {
 
 			// draw the first point
 			addPenPosition(ctx, canvas, e);
+			
+			savePicture();
 		}, false);
 
 		canvas[0].addEventListener("touchmove", function (e) {
@@ -198,15 +194,10 @@ function getPenPosition(canvas, e) {
 
 function savePicture() {
 	bgSnapPicture(function(b64) {
-	    //var image = document.getElementById('myImage');
-	    //image.src = "data:image/jpeg;base64," + b64;
-	    
 	    if (b64 != null) {
 	    	api("save-image.php", {image: b64, order: selectedOrderID, name: selectedOrderName}, function() {
 		    	log("Image saved.");
-	    	});
-	    } else {
-	    	console.log("error");
+	    	}, true);
 	    }
 	});
 }
