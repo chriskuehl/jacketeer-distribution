@@ -13,6 +13,8 @@ function dd(str) {
 }
 
 function log(msg) {
+	return false;
+	
 	var now = new Date();
 	msg = "[" + dd(now.getHours()) + ":" + dd(now.getMinutes()) + ":" + dd(now.getSeconds()) + "]: " + msg;
 
