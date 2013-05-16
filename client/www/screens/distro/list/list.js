@@ -19,6 +19,8 @@ gui.screens["distro/list"].data = {
 		apiWithLoading("Loading orders...", "get-orders.php", {}, function(orders) {
 			var ul = $(".students");
 			
+			log("nr orders: " + orders.length);
+			
 			for (var i = 0; i < orders.length; i ++) {
 				var order = orders[i];
 				var li = $("<li />");
