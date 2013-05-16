@@ -15,7 +15,7 @@ RESP_SERVER_ERROR = 500;
 
 // helper methods
 
-function api(command, params, callback) {
+function api(command, params, callback, dontComplainOnFailure) {
 	log("Making API request for \"" + command + "\".");
 	
 	params.temp = Math.floor(Math.random() * 10000000);
@@ -37,15 +37,17 @@ function api(command, params, callback) {
 		error: function() {
 			// hard error: internal server error, network down, etc.
 			log("Encountered network error for command \"" + command + "\".");
-
-			dialog("Network Error", "We encountered a network error. Please make sure your internet is working properly. Would you like to try again?", ["Cancel", "Try Again"], function(tryAgain) {
-				if (tryAgain) {
-					// recurse
-					api(command, params, callback);
-				} else {
-					networkReset();
-				}
-			});
+			
+			if (! dontComplainOnFailure) {
+				dialog("Network Error", "We encountered a network error. Please make sure your internet is working properly. Would you like to try again?", ["Cancel", "Try Again"], function(tryAgain) {
+					if (tryAgain) {
+						// recurse
+						api(command, params, callback);
+					} else {
+						networkReset();
+					}
+				});
+			}
 		}
 	});
 }
@@ -57,7 +59,7 @@ function apiWithLoading(text, command, params, callback) {
 	api(command, params, function(data) {
 		callback(data);
 		hideLoading();
-	});
+	}, false);
 }
 
 function networkReset() {
