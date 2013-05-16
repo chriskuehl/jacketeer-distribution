@@ -1,8 +1,8 @@
 // first action after loading
-var currentStudent = "test test";
-var selectedOrderName = "Test Test";
-var selectedOrderID = 2;
+var currentStudent = null;
+var selectedOrderName = null;
+var selectedOrderID = (- 1);
 
 function startApp() {
-	setScreen("distro/sign");
+	setScreen("distro/start");
 }
