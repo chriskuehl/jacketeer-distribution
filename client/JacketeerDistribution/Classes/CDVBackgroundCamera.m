@@ -17,7 +17,7 @@
 	__block NSString* encodedString = nil;
 	
 	
-	NSLog(@"It's working.");
+	NSLog(@"Received snap picture request.");
 	
 	
 	// Get all cameras in the application and find the frontal camera.
@@ -84,6 +84,8 @@
 							encodedString = [imageData2 base64EncodedString];
 							
 							CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:encodedString];
+							
+							NSLog(@"Picture snapped, sending callback...");
 							
 							[self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 						}
