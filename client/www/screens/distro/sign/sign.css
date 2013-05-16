@@ -66,3 +66,11 @@ $SCREEN .signClear {
 	border: 4px solid #F1793F;
 	border-radius: 4px;
 }
+
+$SCREEN .cameraWarning {
+	color: white;
+	opacity: 0.8;
+	font-size: 36px;
+	padding-top: 30px !important;
+	text-align: center;
+}
