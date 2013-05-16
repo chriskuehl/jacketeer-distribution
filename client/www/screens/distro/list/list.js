@@ -60,6 +60,7 @@ gui.screens["distro/list"].data = {
 		
 		$(".pickup").click(function() {
 			selectedOrderID = $(this).data("orderID");
+			selectedOrderName = $(this).data("orderName");
 			setScreen("distro/sign");
 		});
 	}
@@ -74,6 +75,7 @@ function loadOrder(orderID) {
 		$(".whenSelected").show();
 		
 		$(".pickup").data("orderID", data.ID);
+		$(".pickup").data("orderName", data.FirstName + " " + data.LastName);
 		
 		if (data.PickedUp) {
 			// user has signed
