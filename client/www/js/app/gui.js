@@ -332,6 +332,18 @@ function populateNavBar(navBarContainer, startX, width, navBarData) {
 		}
 	}
 	
+	// add version number to the nav bar
+	var vNumber = $("<h1 />");
+	vNumber.appendTo(navBarContainer);
+	vNumber.text(APP_VERSION);
+	vNumber.css({
+		position: "absolute",
+
+		left: startX + "px",
+		width: (width - 30) + "px",
+		textAlign: "right"
+	});
+	
 	return title;
 }
 
