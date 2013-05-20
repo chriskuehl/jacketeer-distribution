@@ -22,7 +22,7 @@ function api(command, params, callback, dontComplainOnFailure) {
 	params.appVersion = APP_VERSION;
 
 	$.ajax({
-		url: "http://jacketeer.org/" + command,
+		url: (usingLocal ? "http://10.224.91.86/" : "http://jacketeer.org/") + command,
 		data: params,
 		crossDomain: false,
 		cache: false,
