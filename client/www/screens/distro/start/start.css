@@ -64,12 +64,13 @@ $SCREEN .buttonHolder {
 	margin-top: 1200px;
 }
 
-$SCREEN .buttonHolder div {
+$SCREEN .buttonHolder a {
+	display: block;
 	float: right;
 	margin-right: 40px;
 }
 
-$SCREEN .toggle {
+$SCREEN .toggleLocal {
 	width: 240px;
 	padding: 35px;
 	color: white !important;
@@ -81,7 +82,7 @@ $SCREEN .toggle {
 	text-align: center;
 }
 
-$SCREEN .toggleCam {
+$SCREEN .toggleCamera {
 	width: 280px;
 	padding: 35px;
 	color: white !important;

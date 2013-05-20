@@ -1,3 +1,5 @@
+var isFlashing = false;
+
 gui.screens["distro/start"].data = {
 	id: "distro/start",
 	navBars: [{
@@ -5,6 +7,8 @@ gui.screens["distro/start"].data = {
 	}],
 
 	setup: function(contentManager) {
+		updateButtonText();
+		
 		$(".fullName").keypress(function(e) {
 			if (e.which == 13) {
 				$(".continue").click();
@@ -29,5 +33,40 @@ gui.screens["distro/start"].data = {
             currentStudent = name;
             setScreen("distro/list");
 		});
+		
+		$(".toggleLocal").bind("touchstart", function() {
+			if (isFlashing) {
+				return false;
+			}
+			
+			flashButton($(this));
+			usingLocal = ! usingLocal;
+			updateButtonText();
+		});
+		
+		$(".toggleCamera").bind("touchstart", function() {
+			if (isFlashing) {
+				return false;
+			}
+			
+			flashButton($(this));
+			usingCamera = ! usingCamera;
+			updateButtonText();
+		});
 	}
 };
+
+function flashButton(button) {
+	isFlashing = true;
+	
+	button.animate({backgroundColor: "green"}, 100, "swing", function() {
+		button.animate({backgroundColor: "#D95B1F"}, 100, "swing", function() {
+			isFlashing = false;
+		});
+	});
+}
+
+function updateButtonText() {
+	$(".toggleLocal").text("Turn Local " + (usingLocal ? "Off" : "On"));
+	$(".toggleCamera").text("Turn Camera " + (usingCamera ? "Off" : "On")); 
+}
