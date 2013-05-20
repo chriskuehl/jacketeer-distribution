@@ -72,3 +72,18 @@ $SCREEN .toggle {
 	font-size: 34px;
 	text-align: center;
 }
+
+$SCREEN .toggleCam {
+	width: 240px;
+	padding: 35px;
+	margin-left: auto;
+	color: white !important;
+	margin-right: 400px;
+	margin-top: 1200px;
+	background-color: #D95B1F;
+	border: 4px solid #F1793F;
+	border-radius: 4px;
+	font-family: $BOLD;
+	font-size: 34px;
+	text-align: center;
+}
