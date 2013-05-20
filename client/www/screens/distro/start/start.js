@@ -59,8 +59,8 @@ gui.screens["distro/start"].data = {
 function flashButton(button) {
 	isFlashing = true;
 	
-	button.animate({backgroundColor: "green"}, 100, "swing", function() {
-		button.animate({backgroundColor: "#D95B1F"}, 100, "swing", function() {
+	button.animate({backgroundColor: "#EB612E"}, 100, "swing", function() {
+		button.animate({backgroundColor: "#EB612E"}, 100, "swing", function() {
 			isFlashing = false;
 		});
 	});
