@@ -2,6 +2,9 @@ var APP_VERSION = "5";
 var PLATFORM = PLATFORM_IOS = 1; // helps maintain compatibility with BrowseRight, even though this app doesn't detect platform
 var PLATFORM_PC = 0;
 
+var usingLocal = false;
+var usingCamera = true;
+
 // bootstrap the app
 $(document).ready(function() {
 	start();
