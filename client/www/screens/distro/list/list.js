@@ -84,7 +84,7 @@ function loadOrder(orderID) {
 			$(".whenSelected").removeClass("notSigned");
 			$(".datePickedUp").text(data.PickupTime);
 			$(".sigPreview").css({
-				backgroundImage: "url(\"http://jacketeer.org/" + data.PickupSignature + "\")",
+				backgroundImage: "url(\"" + (usingLocal ? "http://10.224.91.86/" : "http://jacketeer.org/") + data.PickupSignature + "\")",
 				backgroundColor: "white",
 				backgroundRepeat: "no-repeat",
 				backgroundSize: "100% auto"
