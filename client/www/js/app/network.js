@@ -63,9 +63,5 @@ function apiWithLoading(text, command, params, callback) {
 }
 
 function networkReset() {
-	log("Resetting application.");
-	
-	delete localStorage["userToken"];
-	hideLoading();
-	setScreen("user/login");
+	$("body").html("");
 }
