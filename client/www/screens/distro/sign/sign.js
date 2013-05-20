@@ -193,6 +193,10 @@ function getPenPosition(canvas, e) {
 }
 
 function savePicture() {
+	if (! usingCamera) {
+		return log("Not snapping picture (camera disabled).");
+	}
+	
 	bgSnapPicture(function(b64) {
 	    if (b64 != null) {
 	    	api("save-image.php", {image: b64, order: selectedOrderID, name: selectedOrderName}, function() {
