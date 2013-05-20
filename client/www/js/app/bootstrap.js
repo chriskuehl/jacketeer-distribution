@@ -1,4 +1,4 @@
-var APP_VERSION = "6";
+var APP_VERSION = "7";
 var PLATFORM = PLATFORM_IOS = 1; // helps maintain compatibility with BrowseRight, even though this app doesn't detect platform
 var PLATFORM_PC = 0;
 
